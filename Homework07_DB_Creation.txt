@@ -1,0 +1,43 @@
+    # Database diagram creation script
+    
+    departments
+    -
+    dept_no CHARVAR(10) PK
+    dept_name string
+    
+    dept_emp
+    -
+    dept_no CHARVAR(10) PK
+    from_date date
+    to_date date
+    emp_no int FK >- employees.emp_no
+    
+    dept_manager 
+    -
+    dept_no CHARVAR(10) PK
+    emp_no int FK >- employees.emp_no
+    from_date date
+    to_date date
+    
+    employees
+    -
+    emp_no int PK
+    birth_date date
+    first_name CHARVAR(22)
+    last_name CHARVAR(22)
+    gender CHARVAR(3)
+    hire_date date
+    
+    salaries
+    - 
+    emp_no int PK FK >- dept_manager.emp_no
+    salary double
+    from_date date
+    to_date date
+    
+    titles
+    -
+    emp_no int PK
+    title CHARVAR (22)
+    from_date date
+    to_date date
